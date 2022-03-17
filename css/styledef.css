@@ -832,10 +832,11 @@ input[type="checkbox"]:checked::after {
 .tabla {
 
     margin: 3em auto;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 5em;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(1, 1fr); */
+    gap: 5em;
+    /* place-items: center; */
     place-items: center;
     padding: 2em 0;
 }
