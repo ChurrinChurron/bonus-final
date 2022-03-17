@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -131,6 +131,7 @@
 
     let tipoDocu = document.querySelector(".type-document");
     let inputDocu = document.getElementById("docu");
+    let inputCelu = document.getElementById("telephone");
     let maxNum = 8;
     let selDocumento = document.getElementById("selec-dni");
     let selPasaporte = document.getElementById("selec-pasaporte");
@@ -208,6 +209,17 @@
         inputDocu.type = "text";
         formulario.reset();
 
+    });
+
+    //limitación input cel
+
+    inputCelu.addEventListener("input", e => {
+
+        if(e.target.value > 9) {
+
+        e.target.value = e.target.value.slice(0, 9);
+
+        }
     });
 
     </script>
