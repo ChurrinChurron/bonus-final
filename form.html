@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styledef.css">
+    <title>Bonus Affiliation Landing</title>
+</head>
+<body>
+    <div class="circle"></div>
+    <header>
+        <a href="#"><img src="img/mobile/back.png" alt="back arrow"></a>
+        <img id="logo" src="img/logo.png" alt="bonus logo">
+    </header>
+
+    <main>
+        <div id="bonus-compras">
+            <img src="img/bonus-compras.png" alt="bonus" />
+        </div>
+        
+        <div class="content">
+            <div class="banner desktop">
+                <div class="banner imagen"></div>
+            </div>
+        
+                <div id="flex">    
+                    <div class="points form none">
+                            <h2>¡<b>Regístrate HOY y GANA</b> 1 opción para el sorteo! </h2>
+                            <br/>
+                            <form id="formularioDatos">
+                                <div id="input-document">
+                                    <div><label class="type-document"> D.N.I</label><img class="modal-document" src="img/icons/seleccion_abajo.svg" alt="arrow-down"></div>
+                                    <input type="number" maxlength="12" name="document" id="docu" placeholder="Nº de documento">
+                                    <div class="icon"><img src="img/icons/dni.svg" alt="dni"></div>
+                                </div>
+                                <div id="input-phone">
+                                    <input type="number" name="phone" id="telephone" placeholder="Celular">
+                                    <div class="icon"><img src="img/icons/celular.svg" alt="phone"></div>
+                                </div>
+                                <div id="input-mail">
+                                    <input type="email" name="mail" id="email" placeholder="E - mail">
+                                    <div class="icon"><img src="img/icons/correo.svg" alt="mail"></div>
+                                </div>
+                                <div class="terms-list">
+                                    <div class="terms">
+                                        <input type="checkbox" name="terms" id="condiciones" class="moz-check">
+                                        <label for="condiciones" id="terms-text">Acepto los <a href="#">términos y condiciones</a></label>
+                                    </div>
+                                    <div class="terms">
+                                        <input type="checkbox" name="terms" id="proteccion" class="moz-check">
+                                        <label for="proteccion" id="terms-text">Acepto la <a href="#">claúsula de protección de datos</a></label>
+                                    </div>
+                                </div>
+                                <br/>
+                                <p id="type-complete">Completa tus datos y entérate de
+                                    todos los beneficios de la campaña.</p>
+                                <input type="submit" name="one" id="registro" value="REGISTRARME">
+                            </form>
+
+                    </div>
+
+                    <!--Div loader-->
+
+                    <div class="points load des-load">
+                        <div class="loader-inner ball-spin-fade-loader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <p class="text-load-b">Espera unos segundos...</p>
+                        <p class="text-load">Estamos verificando tus datos.</p>
+                        <p class="text-load-b">¡Ya éstas registrado y GANASTE 1 opción para el sorteo!</p>
+                    </div>
+                    
+                    <div id="logos-particip">
+                        <img src="img/logos-participantes/Metro.svg" alt="metro" />
+                        <img src="img/logos-participantes/Wong.svg" alt="wong" />
+                        <img id="primax" src="img/logos-participantes/Primax.svg" alt="primax" />
+                        <img id="listo" src="img/logos-participantes/Listo.svg" alt="listo" />
+                        <img src="img/logos-participantes/KFC.svg" alt="KFC" />
+                        <img src="img/logos-participantes/Pizza-Hut.svg" alt="pizza-hut" />      
+                    </div>
+                </div>
+
+        </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="dudas">
+            <p><b>¿Dudas?</b> Escríbenos al <b><img src="img/icons/whatsapp.svg" alt="whatsapp-icon" />946 348 142</b> o llámanos al <b>01 610 5252</b></p>
+        </div>
+        
+    </footer>
+
+    <!--modal de la selección de documento-->
+
+    <div class="modal selec-doc des-sel">
+        <div class="modal white">
+            <div id="close">
+                <button class="modal-close"><img src="img/icons/cerrar_popup_informacion.svg" alt="close"></button>
+            </div>
+            <h2>SELECCIONA UN TIPO DE DOCUMENTO</h2>
+            <div class="selec-lista">
+                <button class="lista-botones" id="selec-dni">D.N.I</button>
+                <button class="lista-botones" id="selec-pasaporte">Pasaporte</button>
+                <button class="lista-botones" id="selec-ce">C.E</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    let none = document.querySelector(".selec-doc");
+    let abrirLista = document.querySelector(".modal-document");
+    let botonCerrar = document.querySelector(".modal-close");
+    let loader = document.querySelector(".load");
+    let botonRegistro = document.querySelector("#registro");
+    let contenido = document.querySelector(".points");
+    let logos = document.getElementById("logos-particip");
+
+    //Cambio de texto en el documento (preferiblemente hacerlo con input type select)
+
+    let tipoDocu = document.querySelector(".type-document");
+    let inputDocu = document.getElementById("docu");
+    let maxNum = 8;
+    let selDocumento = document.getElementById("selec-dni");
+    let selPasaporte = document.getElementById("selec-pasaporte");
+    let selCe = document.getElementById("selec-ce");
+    let formulario = document.getElementById("formularioDatos");
+
+//contenido del cuadro de los formularios
+
+    contenido.classList.remove("none");
+
+//abrir el pop up de la selección del documento
+
+    abrirLista.addEventListener("click", () => {
+
+        none.classList.remove("des-sel");
+    });
+
+    botonCerrar.addEventListener("click", () => {
+
+        none.classList.add("des-sel");
+    })
+
+//boton loader
+
+    botonRegistro.addEventListener("click", e => {
+
+        e.preventDefault();
+
+        contenido.classList.add("none");
+        loader.classList.remove("des-load");
+        logos.style.display = "none";
+    });
+
+//Cambio de texto en label de selección de documento
+
+    inputDocu.addEventListener("input", e => {
+
+        if(e.target.value > maxNum) {
+
+            e.target.value = e.target.value.slice(0, maxNum);
+        }
+        
+    });
+
+    selDocumento.addEventListener("click", () => {
+
+        tipoDocu.innerHTML = "D.N.I";
+        none.classList.add("des-sel");
+        inputDocu.type = "number";
+        formulario.reset();
+
+        inputDocu.addEventListener("input", e => {
+
+            if(e.target.value > maxNum) {
+
+                e.target.value = e.target.value.slice(0, maxNum);
+            }
+        
+        });
+    });
+
+    selPasaporte.addEventListener("click", () => {
+
+        tipoDocu.innerHTML = "Pasaporte";
+        none.classList.add("des-sel");
+        inputDocu.type = "text";
+        formulario.reset();
+
+    });
+
+    selCe.addEventListener("click", () => {
+
+        tipoDocu.innerHTML = "C.E";
+        none.classList.add("des-sel");
+        inputDocu.type = "text";
+        formulario.reset();
+
+    });
+
+    </script>
+</body>
+</html>
