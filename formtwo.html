@@ -32,7 +32,7 @@
                                 <br/>
                                 <div id="input-document">
                                     <div><label class="type-document"> D.N.I</label><img class="modal-document" src="img/icons/seleccion_abajo.svg" alt="arrow-down"></div>
-                                    <input type="number" maxlength="12" name="document" id="docu" placeholder="Nº de documento">
+                                    <input type="number" name="document" id="docu" placeholder="Nº de documento">
                                     <div class="icon"><img src="img/icons/dni.svg" alt="dni"></div>
                                 </div>
                                 <div id="input-birthday">
@@ -188,6 +188,7 @@
         tipoDocu.innerHTML = "Pasaporte";
         none.classList.add("des-sel");
         inputDocu.type = "text";
+        inputDocu.maxLength = 15;
         formulario.reset();
 
     });
@@ -197,6 +198,7 @@
         tipoDocu.innerHTML = "C.E";
         none.classList.add("des-sel");
         inputDocu.type = "text";
+        inputDocu.maxLength = 9;
         formulario.reset();
 
     });
@@ -218,9 +220,9 @@
             que el usuario escriba el slash*/
 
             if(len !== 1 || len !== 3) {
-              if(e.keyCode == 47) {
+                if(e.keyCode == 47) {
                 e.preventDefault();
-              }
+                }
             }
 
             //Si no añadió el slash, esto lo hace automaticamente
@@ -234,7 +236,7 @@
             }
         });
     };
-  
+
     inputDateMask(inputDate);
 
     </script>
