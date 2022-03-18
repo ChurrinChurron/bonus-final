@@ -32,7 +32,7 @@
                                 <br/>
                                 <div id="input-document">
                                     <div><label class="type-document"> D.N.I</label><img class="modal-document" src="img/icons/seleccion_abajo.svg" alt="arrow-down"></div>
-                                    <input type="text" name="document" id="docu" placeholder="Nº de documento">
+                                    <input type="number" name="document" id="docu" placeholder="Nº de documento">
                                     <div class="icon"><img src="img/icons/dni.svg" alt="dni"></div>
                                 </div>
                                 <input type="submit" name="two" id="registro" value="CONTINUAR">
@@ -109,6 +109,9 @@
     //Cambio de texto en el documento (preferiblemente hacerlo con input type select)
 
     let tipoDocu = document.querySelector(".type-document");
+    let inputDocu = document.getElementById("docu");
+    let inputCelu = document.getElementById("telephone");
+    let maxNum = 8;
     let selDocumento = document.getElementById("selec-dni");
     let selPasaporte = document.getElementById("selec-pasaporte");
     let selCe = document.getElementById("selec-ce");
@@ -143,34 +146,62 @@
 
 //Cambio de texto en label de selección de documento
 
-    selDocumento.addEventListener("click", () => {
+inputDocu.addEventListener("input", e => {
 
-        tipoDocu.innerHTML = "D.N.I";
-        none.classList.add("des-sel");
-        formulario.reset();
-    });
+if(e.target.value > maxNum) {
 
-    selPasaporte.addEventListener("click", () => {
+    e.target.value = e.target.value.slice(0, maxNum);
+}
 
-        tipoDocu.innerHTML = "Pasaporte";
-        none.classList.add("des-sel");
-        formulario.reset();
-    });
+});
 
-    selCe.addEventListener("click", () => {
+selDocumento.addEventListener("click", () => {
 
-        tipoDocu.innerHTML = "C.E";
-        none.classList.add("des-sel");
-        formulario.reset();
-    });
-        
-    // al darle click al input de la fecha, cambia de input text a date, si se
-    // quiere permanecer el placeholder
+tipoDocu.innerHTML = "D.N.I";
+none.classList.add("des-sel");
+inputDocu.type = "number";
+formulario.reset();
 
-    inputDate.addEventListener("focus", () => {
+inputDocu.addEventListener("input", e => {
 
-        inputDate.type = "date";
-    })
+    if(e.target.value > maxNum) {
+
+        e.target.value = e.target.value.slice(0, maxNum);
+    }
+
+});
+});
+
+selPasaporte.addEventListener("click", () => {
+
+tipoDocu.innerHTML = "Pasaporte";
+none.classList.add("des-sel");
+inputDocu.type = "text";
+inputDocu.maxLength = 15;
+formulario.reset();
+
+});
+
+selCe.addEventListener("click", () => {
+
+tipoDocu.innerHTML = "C.E";
+none.classList.add("des-sel");
+inputDocu.type = "text";
+inputDocu.maxLength = 9;
+formulario.reset();
+
+});
+
+//limitación input cel
+
+inputCelu.addEventListener("input", e => {
+
+if(e.target.value > 9) {
+
+e.target.value = e.target.value.slice(0, 9);
+
+}
+});
 
     </script>
 </body>
