@@ -843,7 +843,7 @@ input[type="checkbox"]:checked::after {
 .card {
 
     width: 300px;
-    height: 622px;
+    height: 647px;
     position: relative;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
     transition: all .5s linear;
@@ -909,7 +909,7 @@ input[type="checkbox"]:checked::after {
 .description-cod {
 
     background-color: #efefef;
-    padding: 0.925em 1em;
+    padding: 1.725em 1em;
     color: #616161;
 }
 
@@ -921,7 +921,7 @@ input[type="checkbox"]:checked::after {
 .description-cod-deshabil {
 
     background-color: #efefef;
-    height: 260px;
+    height: 285px;
     padding: 1em;
     text-align: left;
     color: #616161;
@@ -993,7 +993,7 @@ input[type="checkbox"]:checked::after {
 
 .back p {
 
-    line-height: 22px;
+    line-height: 25px;
 }
 
 .rotate {
