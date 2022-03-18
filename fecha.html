@@ -123,41 +123,47 @@
         loader.classList.remove("des-load");
         logos.style.display = "none";
     });
-        
-     // formato del input date
+
+         // formato del input date
 
     let inputDateMask = function inputDateMask(el) {
 
         el.addEventListener("input", e => {
 
-            if(e.keyCode < 47 || e.keyCode > 57) {
-            e.preventDefault();
+            if(e.keyCode !== 8) {
             
+                if(e.keyCode < 47 || e.keyCode > 57) {
+                    e.preventDefault();
+                }
+
+                const len = el.value.length;
+
+                /*Si estamos en un lugar determinado, 
+                que el usuario escriba el slash*/
+
+                if(len !== 1 || len !== 3) {
+                        if(e.keyCode == 47) {
+                        e.preventDefault();
+                    }
+                }
+                
+                if(len === 3 || len === 6){
+                    
+                    el.value = el.value.substr(0, el.value.length-1);
+                }
+
+                //Si no añadió el slash, esto lo hace automaticamente
+
+                if(len === 2 || len === 5) {
+                    el.value += '/';
+                }
+
             }
 
-            const len = el.value.length;
-
-            /*Si estamos en un lugar determinado, 
-            que el usuario escriba el slash*/
-
-            if(len !== 1 || len !== 3) {
-              if(e.keyCode == 47) {
-                e.preventDefault();
-              }
-            }
-
-            //Si no añadió el slash, esto lo hace automaticamente
-
-            if(len === 2) {
-                el.value += '/';
-            }
-
-            if(len === 5) {
-                el.value += '/';
-            }
         });
+
     };
-  
+
     inputDateMask(inputDate);
 
     </script>
